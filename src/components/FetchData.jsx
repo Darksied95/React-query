@@ -8,7 +8,7 @@ const FetchData = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4900/superheros")
+      .get("http://localhost:4000/superheros")
       .then(({ data }) => {
         setData(data);
         setIsLoading(false);
@@ -18,6 +18,7 @@ const FetchData = () => {
         setError(err.message);
       });
   }, []);
+
   if (isLoading) return <div>Loading ...</div>;
 
   if (error) return <div> {error}</div>;

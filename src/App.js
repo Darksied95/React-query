@@ -1,9 +1,10 @@
 import './App.css';
 import { Link, Route, Routes } from 'react-router-dom';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import Homepage from './components/Homepage';
 import FetchData from './components/FetchData';
 import RQFetchData from './components/RQFetchData';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools'
 
 
 
@@ -40,6 +41,7 @@ function App() {
           </Routes>
         </div>
       </div>
+      <ReactQueryDevtools position='bottom-right' />
     </QueryClientProvider>
   );
 }

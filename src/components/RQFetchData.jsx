@@ -3,11 +3,16 @@ import React from "react";
 import { useQuery } from "react-query";
 
 const RQFetchData = () => {
-  let { isLoading, data, isError, error } = useQuery("super-heroes", () => {
-    return axios.get("http://localhost:4000/superhkeros");
-  });
+  let { isLoading, data, isError, error, isFetching } = useQuery(
+    "super-heroes",
+    () => {
+      return axios.get("http://localhost:4000/superheros");
+    },
+    {
+      staleTime: 5000,
+    }
+  );
 
-  console.log();
   if (isLoading) return <div>Loading ... </div>;
   if (isError) return <div>{error.message}</div>;
   return (
